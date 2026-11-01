@@ -1,0 +1,25 @@
+{
+  "mode": "demo",
+  "source": "Mytrain authored fictional fixtures v1 — DEMO DATA",
+  "stations": [
+    { "id": "DEMO-A", "name": "Sample Central", "latitude": 20, "longitude": 75 },
+    { "id": "DEMO-B", "name": "Sample Junction", "latitude": 20.2, "longitude": 75.2 },
+    { "id": "DEMO-C", "name": "Sample Riverside", "latitude": 20.4, "longitude": 75.4 }
+  ],
+  "trains": [
+    { "number": "00001", "name": "Sample Morning Express", "stops": [
+      { "stationId": "DEMO-A", "sequence": 0, "minute": 480 },
+      { "stationId": "DEMO-B", "sequence": 1, "minute": 525 },
+      { "stationId": "DEMO-C", "sequence": 2, "minute": 570 }
+    ] },
+    { "number": "00002", "name": "Sample Riverside Local", "stops": [
+      { "stationId": "DEMO-C", "sequence": 0, "minute": 600 },
+      { "stationId": "DEMO-B", "sequence": 1, "minute": 660 },
+      { "stationId": "DEMO-A", "sequence": 2, "minute": 720 }
+    ] },
+    { "number": "00003", "name": "Sample Night Express", "stops": [
+      { "stationId": "DEMO-A", "sequence": 0, "minute": 1410 },
+      { "stationId": "DEMO-C", "sequence": 1, "minute": 1500 }
+    ] }
+  ]
+}

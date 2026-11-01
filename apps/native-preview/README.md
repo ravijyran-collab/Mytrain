@@ -1,0 +1,11 @@
+# Standalone native Android preview
+
+This is a separate small Java/standard-Android-controls demo for preview while the Expo APK is blocked on a native-library download. It is not a WebView and is not the Expo/React Native APK. The Expo project remains in apps/android; its default prebuilt configuration is preserved, with the source-build experiment opt-in only.
+
+Features: fictional number/name search, route stops/overnight times, device-local saved trains and rotation state. It packages the exact data/demo.json fixture. The Java search/time helper mirrors the shared TypeScript behaviour but is a separate implementation; do not assume future TypeScript changes propagate automatically. The preview has no declared permissions, backend, Internet request or real timetable. Data is stored in private SharedPreferences, backup disabled; clearing app data removes saved trains.
+
+Build from the repository root: `npm run android:preview-apk`. Uses already installed verified SDK37 build-tools/platform and full JDK21. No Gradle/network dependency is required. The build script compiles Java, emits DEX, packages assets/resources, aligns and signs with an ignored internal-test keystore. Signing uses a standard public test password, not a production credential. No production signing/store publishing is authorised.
+
+Output: artifacts/mytrain-native-preview.apk and a SHA-256 sidecar. Minimum Android 7 (API24), target API36; no native ABI libraries, so the preview is not ARM64-only. Android signature/alignment/package checks passed, six Java search/time assertions ran, and the packaged demo fixture was checked byte-for-byte. Actual launch, visual layout, keyboard, accessibility, disk persistence and airplane-mode behaviour on a device remain unverified. Java compilation emitted source8/deprecation warnings, not errors.
+
+Install only as an internal fictional-data preview. On your tablet, open the APK with Android's package installer; if Android requests it, allow this specific browser/file app to install the file temporarily. Do not disable Play Protect or other protection. An installation error should be diagnosed from its exact message. Search 00001 or Express, open 00003 for an overnight route, and save/reopen a train to test local persistence. No account or payment is required.
